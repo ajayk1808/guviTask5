@@ -1,0 +1,20 @@
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Q1_ConvertToUppercase {
+
+    // Method to convert each string in the list to uppercase
+    public static List<String> convertToUpper(List<String> names) {
+        return names.stream()                      // Convert the list to a Stream
+                    .map(String::toUpperCase)      // Convert each string to uppercase
+                    .collect(Collectors.toList()); // Collect the results into a new List
+    }
+
+    public static void main(String[] args) {
+        List<String> input = List.of("aBc", "d", "ef"); // Create a list of strings
+        List<String> result = convertToUpper(input);    // Call the method to convert
+
+        System.out.println("Converted to Uppercase: " + result); // Print result
+    }
+}
