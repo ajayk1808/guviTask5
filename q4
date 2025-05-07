@@ -1,0 +1,31 @@
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Scanner;
+
+public class Q4_AgeCalculator {
+
+    public static void main(String[] args) {
+
+        // Scanner to get user input
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for birthdate
+        System.out.print("Enter your birthdate (yyyy-mm-dd): ");
+        String input = scanner.nextLine(); // Read input as a string
+
+        // Parse input string into LocalDate
+        LocalDate birthDate = LocalDate.parse(input);
+
+        // Get the current date
+        LocalDate currentDate = LocalDate.now();
+
+        // Calculate the period (difference) between the two dates
+        Period age = Period.between(birthDate, currentDate);
+
+        // Print the result
+        System.out.printf("Your age is: %d years, %d months, and %d days.%n",
+                age.getYears(), age.getMonths(), age.getDays());
+
+        scanner.close(); // Close the scanner to avoid resource leak
+    }
+}
