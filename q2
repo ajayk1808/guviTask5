@@ -1,0 +1,19 @@
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Q2_FilterNonEmptyStrings {
+
+    // Method to return only non-empty (non-blank) strings
+    public static List<String> getNonEmptyStrings(List<String> strings) {
+        return strings.stream()                  // Convert the list to a Stream
+                      .filter(s -> !s.isBlank()) // Keep only strings that are not blank or empty
+                      .collect(Collectors.toList()); // Collect the filtered strings into a list
+    }
+
+    public static void main(String[] args) {
+        List<String> input = List.of("abc", "", "bc", "efg", "abcd", "", "jkl"); // Input list
+        List<String> nonEmpty = getNonEmptyStrings(input);                       // Call the method
+
+        System.out.println("Non-empty Strings: " + nonEmpty); // Output the result
+    }
+}
